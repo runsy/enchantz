@@ -16,7 +16,7 @@ local enchantz = {
 	jump     = 0.2   -- Player jumping (3d_armor only)
 }
 
-local function cap(S) return S:gsub("^%l", string.upper) end
+local function cap(str) return str:gsub("^%l", string.upper) end
 local function to_percent(orig_value, final_value)
 	return abs(ceil(((final_value - orig_value) / orig_value) * 100))
 end
@@ -55,6 +55,8 @@ function enchantz.formspec(pos, num)
 	local formspec = "size[9,9;]"..
 			"bgcolor[#080808BB;true]"..
 			"background[0,0;9,9;enchantz_ui.png]"..
+			"label[0.9,2.5;"..S("Item").."]"..
+			"label[2,2.5;"..S("Mese").."]"..
 			"list[context;tool;0.9,2.9;1,1;]"..
 			"list[context;mese;2,2.9;1,1;]"..
 			"list[current_player;main;0.5,4.5;8,4;]"..
